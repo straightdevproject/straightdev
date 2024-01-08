@@ -8,4 +8,4 @@ services:
       - PYTHONUNBUFFERED=1
     container_name: straightdev
     image: straightdevproject/straightdev:0.0.1
-    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
