@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 import os
 
 # SQL_ALQUEMY_DATABASE_URL = 'postgresql://postgres:mapajos2010@localhost/straightdev'
-SQL_ALQUEMY_DATABASE_URL = f"postgresql://{os.environ['POSTGRES_USER']}:{os.environ['POSTGRES_PASSWORD']}@db/{os.environ['POSTGRES_DB']}"
+SQL_ALQUEMY_DATABASE_URL = f"postgresql://{os.environ['POSTGRES_USER']}:{os.environ['POSTGRES_PASSWORD']}@{os.environ['POSTGRES_HOST']}/{os.environ['POSTGRES_DB']}"
 
 engine = create_engine(SQL_ALQUEMY_DATABASE_URL)
 
