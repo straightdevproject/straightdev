@@ -2,7 +2,7 @@ from typing import List
 from fastapi import FastAPI, Depends, HTTPException, status
 from app import schemas
 from app.database import get_db
-from app.models import UserRequest, UserResponse
+from app.models import UserRequest, UserResponse, OrganizationResponse, OrganizationRequest
 from sqlalchemy.orm import Session
 
 # schemas.Base.metadata.create_all(bind=engine)
@@ -38,18 +38,17 @@ def create_user(user: UserRequest, db: Session = Depends(get_db)):
     db.refresh(new_user)
     return new_user
 
-# @app.get("/organizations/{id}", response_model=OrganizationResponse)
-# def get_organization(id: int, db: Session = Depends(get_db)):
-#     organization = db.query(schemas.Organization).filter(schemas.Organization.id == id).first()
-#     if not organization:
-#         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
-#                             detail=f"Organization with id {id} was not found")
-#     return organization
 
-# @app.post("/organizations", status_code=status.HTTP_201_CREATED, response_model=OrganizationResponse)
-# def create_organization(organization: OrganizationRequest, db: Session = Depends(get_db)):
-#     new_organization = schemas.Organization(**organization.dict())
-#     db.add(new_organization)
-#     db.commit()
-#     db.refresh(new_organization)
-#     return new_organization
+@app.get("/organizations", response_model=List[OrganizationResponse])
+def get_organizations(db: Session = Depends(get_db)):
+    organizations = db.query(schemas.Organization).all()
+    return organizations
+
+
+@app.post("/organizations", status_code=status.HTTP_201_CREATED, response_model=OrganizationResponse)
+def create_organization(organization: OrganizationRequest, db: Session = Depends(get_db)):
+    new_organization = schemas.Organization(**organization.model_dump())
+    db.add(new_organization)
+    db.commit()
+    db.refresh(new_organization)
+    return new_organization
