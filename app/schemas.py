@@ -1,5 +1,7 @@
+from sqlalchemy.orm import relationship
+
 from app.database import Base
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.sql.sqltypes import TIMESTAMP
 from sqlalchemy.sql.expression import text
 
@@ -11,6 +13,8 @@ class User(Base):
     surname = Column(String, nullable=True)
     created_at = Column(TIMESTAMP(timezone=True),
                         nullable=False, server_default=text('now()'))
+    organization_id = Column(Integer, ForeignKey('organizations.id'))
+    organization = relationship('Organization', back_populates='users')
 
 
 class Organization(Base):
@@ -19,3 +23,4 @@ class Organization(Base):
     name = Column(String, nullable=False)
     created_at = Column(TIMESTAMP(timezone=True),
                         nullable=False, server_default=text('now()'))
+    users = relationship('User', back_populates='organization')

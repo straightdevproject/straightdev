@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="straightdev.local" uuid="1992fcce-442a-41d9-a3f2-a77309aa9761">
+    <data-source source="LOCAL" name="straightdev.local" uuid="cc90ee94-fa1a-438b-abfc-d54125e5ed57">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://host.docker.internal:5432/straightdev</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
-    <data-source source="LOCAL" name="straightdev.main" uuid="0cf5ab21-6eb6-4d20-89b0-1aef440e155b">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://dpg-cmfs0amn7f5s73c8r150-a.frankfurt-postgres.render.com:5432/straigthdev</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

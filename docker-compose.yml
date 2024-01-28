@@ -13,16 +13,18 @@ services:
     depends_on:
       - db
     networks:
-      - network
+      - my_network
+    extra_hosts:
+      - "host.docker.internal: 172.18.0.1"
 
   db:
     ports:
       - "5432:5432"
     container_name: db
-    image: postgres:13
+    image: postgres:14
     env_file:
       - .env
     networks:
-      - network
+      - my_network
 networks:
-  network:
+  my_network:
