@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="straightdev.local" uuid="cc90ee94-fa1a-438b-abfc-d54125e5ed57">
+    <data-source source="LOCAL" name="production" uuid="24ced289-cb52-41a1-8ea4-dcd0304b3eda">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://dpg-cmfs0amn7f5s73c8r150-a.frankfurt-postgres.render.com:5432/straigthdev</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="local" uuid="d9a8d5b5-5703-4eae-8d55-09a111082bcb">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
